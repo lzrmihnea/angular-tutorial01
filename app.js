@@ -75,7 +75,8 @@
 
     app.directive('productTitle', function(){
        return {
-           restrict: 'E',   // Type of Directive (E for Element)
+           //restrict: 'E',   // Type of Directive (E for Element)
+           restrict: 'A',   // Type of Directive (A for Attribute)
            templateUrl: 'views/product-title.html' // (URL of a template)
        }
     });
