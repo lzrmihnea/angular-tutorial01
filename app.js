@@ -73,4 +73,11 @@
         }
     });
 
+    app.directive('productTitle', function(){
+       return {
+           restrict: 'E',   // Type of Directive (E for Element)
+           templateUrl: 'views/product-title.html' // (URL of a template)
+       }
+    });
+
 })();
