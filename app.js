@@ -17,6 +17,16 @@
                     full: './images/paraleli_big.jpg',
                     thumb: './images/paraleli_small.jpg'
                 },
+            ],
+            reviews: [
+                {stars: 5,
+                body: "I love this product",
+                author: "joe@yahoo.com"
+                },
+                {stars: 1,
+                body: "this sucks",
+                author: "adam@west.com"
+                }
             ]
         },
         {
@@ -34,6 +44,16 @@
                     full: './images/paraleli_big.jpg',
                     thumb: './images/paraleli_small.jpg'
                 },
+            ],
+            reviews: [
+                {stars: 2,
+                    body: "meh",
+                    author: "adi@yahoo.com"
+                },
+                {stars: 7,
+                    body: "wow",
+                    author: "ji2m@west.com"
+                }
             ]
         }
     ]
