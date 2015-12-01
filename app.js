@@ -22,10 +22,6 @@
                 {stars: 5,
                 body: "I love this product",
                 author: "joe@yahoo.com"
-                },
-                {stars: 1,
-                body: "this sucks",
-                author: "adam@west.com"
                 }
             ]
         },
@@ -46,10 +42,6 @@
                 },
             ],
             reviews: [
-                {stars: 2,
-                    body: "meh",
-                    author: "adi@yahoo.com"
-                },
                 {stars: 7,
                     body: "wow",
                     author: "ji2m@west.com"
@@ -69,6 +61,14 @@
         };
         this.isSelected = function(checkTab) {
             return (this.tab === checkTab);
+        }
+    });
+
+    app.controller("ReviewController", function() {
+
+        this.addReview = function(product) {
+            product.reviews.push(this.review);
+            this.review={};
         }
     });
 
