@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style0.css"/>
+    <script type="text/javascript" src="../js/angular.js"></script>
+    <script type="text/javascript" src="../app.js"></script>
+    <title></title>
+</head>
+<body>
+<div ng-show="product.images.length">
+    <img ng-src="{{product.images[0].thumb}}"/>
+
+    <div class="img-wrap">
+        <img ng-src="{{product.images[gallery.current]}}" />
+    </div>
+    <ul class="img-thumbnails clearfix">
+        <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+            <img ng-src="{{image}}" />
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
