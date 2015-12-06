@@ -1,7 +1,47 @@
 (function () {
-    var app = angular.module('gemStore', []);
+    var app = angular.module('gemStore', ['store-directives']);
 
-    var gems = [
+    //var gems = $http({method:'GET', url: 'products.json'});
+    //$http.get('/products.json', {apiKey: 'myApiKey' });
+    //$http.post('/path/to/resource.json', {param:'value'});
+    //$http.delete('/path/to/resource.json');
+    //$http({ method:'OPTIONS', url:'/path/to/resource.json'});
+    //$http({ method: 'PATCH', url:'/path/to/resource.json'});
+    //$http({ method:'TRACE', url:'/path/to/resource.json'});
+    //
+    //
+    //app.controller('StoreController', ['$http', function ($http) {
+    //    var store = this;
+    //    store.products = [ ];
+    //
+    //    $http.get('products.json').success(function(data){
+    //        store.products = data;
+    //    })
+    //}]);
+
+    app.controller('StoreController', function () {
+        this.products = gems;
+    });
+
+
+    app.controller("ReviewController", function() {
+        this.review = {};
+
+        this.addReview = function(product) {
+            product.reviews.push(this.review);
+            this.review={};
+        }
+    });
+
+    //// Injecting one service
+    //app.controller('SomeController01', ['$http', function($http){
+    //}]);
+    //
+    //// Injecting two services
+    //app.controller('SomeController02', ['$http', '$log', function($http, $log){
+    //}]);
+
+    var gems= [
         {
             name: 'Dodecahedron',
             price: 2.95,
@@ -20,8 +60,8 @@
             ],
             reviews: [
                 {stars: 5,
-                body: "I love this product",
-                author: "joe@yahoo.com"
+                    body: "I love this product",
+                    author: "joe@yahoo.com"
                 }
             ]
         },
@@ -49,60 +89,5 @@
             ]
         }
     ]
-
-    app.controller('StoreController', function () {
-        this.products = gems;
-    });
-
-
-    app.controller("ReviewController", function() {
-        this.review = {};
-
-        this.addReview = function(product) {
-            product.reviews.push(this.review);
-            this.review={};
-        }
-    });
-
-    app.directive('productTitle', function(){
-       return {
-           //restrict: 'E',   // Type of Directive (E for Element)
-           restrict: 'A',   // Type of Directive (A for Attribute)
-           templateUrl: 'views/product-title.html' // (URL of a template)
-       };
-    });
-
-    app.directive("productGallery", function(){
-        return {
-            restrict: 'E',
-            templateUrl: 'views/product-gallery.html',
-            controller:function(){
-                this.current = 0;
-                this.setCurrent = function(imageNumber){
-                    this.current = imageNumber || 0;
-                };
-            },
-            controllerAs:'gallery'
-        };
-
-    });
-
-    app.directive('productPanels', function(){
-        return {
-            restrict: 'E',   // Type of Directive (E for Element)
-            templateUrl: 'views/product-panels.html', // (URL of a template)
-
-            controller:function(){
-                this.tab = 1;
-                this.selectTab = function(setTab) {
-                    this.tab = setTab;
-                };
-                this.isSelected = function(checkTab) {
-                    return (this.tab === checkTab);
-                }
-            },
-            controllerAs:"panel"
-        };
-    });
 
 })();
